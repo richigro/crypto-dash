@@ -25,9 +25,9 @@ function toProperCase(lowerCaseString) {
 }
 
 function ControlButton({name, active, ...props}) {
-  const [page, setPage] = React.useContext(AppContext);
-  return (<ControlButtonElement active={page === name} onClick={() => {
-    setPage(name);
+  const [pageState, setPageState] = React.useContext(AppContext);
+  return (<ControlButtonElement active={pageState.page === name} onClick={() => {
+    setPageState((prevState) => ({...prevState, page: name}));
   }}{...props}>{toProperCase(name)}</ControlButtonElement>)
 }
 export default function() {

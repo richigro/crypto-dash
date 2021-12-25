@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import './App.css'
 
-import Welcome from './Welcome';
+import Welcome from '../Settings/Welcome';
 import AppBar from './AppBar';
 import AppLayout from './AppLayout';
-
 import AppProvider from './AppProvider';
+import Settings from '../Settings';
 
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
     <AppLayout>
       <AppProvider>
         <AppBar/>
-        <Welcome />
+        <Settings/>
       </AppProvider>
     </AppLayout> 
   );
