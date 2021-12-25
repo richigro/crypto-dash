@@ -6,12 +6,16 @@ import Welcome from './Welcome';
 import AppBar from './AppBar';
 import AppLayout from './AppLayout';
 
+import AppProvider from './AppProvider';
+
 
 export default function App() {
   return (
     <AppLayout>
-      <AppBar/>
-      <Welcome />
+      <AppProvider>
+        <AppBar/>
+        <Welcome />
+      </AppProvider>
     </AppLayout> 
   );
 };
