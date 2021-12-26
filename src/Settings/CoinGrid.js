@@ -11,18 +11,20 @@ export const CoinGridStyled = styled.div`
   grid-gap: 15px;
 `;
 
-function getCoinsToDisplay(coinObject) {
-  return Object.keys(coinObject).slice(0, 100);
+function getCoinsToDisplay(coinObject, topSection) {
+  return Object.keys(coinObject).slice(0, topSection ? 10 : 40);
 }
 
-export default function CoinGrid() {
+export default function CoinGrid({ topSection }) {
   const [pageState] = React.useContext(AppContext);
   return (
     <div>
       the list maybe
       <CoinGridStyled>
-        {getCoinsToDisplay(pageState.coinObject).map((coinKey) => {
-          return <CoinTile key={coinKey} coinKey={coinKey} />;
+        {getCoinsToDisplay(pageState.coinObject, topSection).map((coinKey) => {
+          return (
+            <CoinTile topSection={topSection} key={coinKey} coinKey={coinKey} />
+          );
         })}
       </CoinGridStyled>
     </div>
