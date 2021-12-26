@@ -22,7 +22,7 @@ export default function AppProvider(props) {
       console.log("this baby should be running!");
       const { Data: coinObject } = await cc.coinList();
       console.log("What do we get here?", Object.entries(coinObject));
-      setPageState((prevState) => ({ ...prevState, coinList: coinObject }));
+      setPageState((prevState) => ({ ...prevState, coinObject }));
     })();
   }, []);
   const value = [pageState, setPageState, confirmFavorites];
