@@ -1,21 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import './App.css'
+import React from "react";
+import "./App.css";
 
-import Welcome from '../Settings/Welcome';
-import AppBar from './AppBar';
-import AppLayout from './AppLayout';
-import AppProvider from './AppProvider';
-import Settings from '../Settings';
-
+import AppBar from "./AppBar";
+import AppLayout from "./AppLayout";
+import AppProvider from "./AppProvider";
+import Settings from "../Settings";
+import Content from "../Shared/Content";
 
 export default function App() {
   return (
     <AppLayout>
       <AppProvider>
-        <AppBar/>
-        <Settings/>
+        <AppBar />
+        <Content>
+          <Settings />
+        </Content>
       </AppProvider>
-    </AppLayout> 
+    </AppLayout>
   );
-};
+}
