@@ -21,13 +21,10 @@ const CenterDiv = styled.div`
 `;
 
 export default function () {
-  const [pageState, setPageState, confirmFavorites] =
-    React.useContext(AppContext);
+  const [_, __, saveFavorites] = React.useContext(AppContext);
   return (
     <CenterDiv>
-      <ConfirmButton onClick={confirmFavorites}>
-        Confirm Favorites
-      </ConfirmButton>
+      <ConfirmButton onClick={saveFavorites}>Save Favorites</ConfirmButton>
     </CenterDiv>
   );
 }

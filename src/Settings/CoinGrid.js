@@ -11,17 +11,18 @@ export const CoinGridStyled = styled.div`
   grid-gap: 15px;
 `;
 
-function getCoinsToDisplay(coinObject, topSection) {
-  return Object.keys(coinObject).slice(0, topSection ? 10 : 40);
+function getCoinsToDisplay(coinObject, topSection, favorites) {
+  return topSection ? favorites : Object.keys(coinObject).slice(0, 40);
 }
 
 export default function CoinGrid({ topSection }) {
-  const [pageState] = React.useContext(AppContext);
+  const [{ coinObject, favorites }] = React.useContext(AppContext);
+  console.log("the favorites as of now: ", favorites);
   return (
     <div>
-      the list maybe
+      {topSection ? "My Favorites" : "Select your favorites"}
       <CoinGridStyled>
-        {getCoinsToDisplay(pageState.coinObject, topSection).map((coinKey) => {
+        {getCoinsToDisplay(coinObject, topSection, favorites).map((coinKey) => {
           return (
             <CoinTile topSection={topSection} key={coinKey} coinKey={coinKey} />
           );
