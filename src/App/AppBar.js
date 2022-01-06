@@ -4,7 +4,7 @@ import { css } from "styled-components";
 
 import { AppContext } from "./AppProvider";
 
-import { useCoinList } from "../Hooks/coinHooks.js";
+import { useCoinObject } from "../Hooks/coinHooks.js";
 
 const Logo = styled.div`
   font-size: 1.5em;
@@ -31,8 +31,8 @@ function toProperCase(lowerCaseString) {
 
 function ControlButton({ name, active, ...props }) {
   const [pageState, setPageState] = React.useContext(AppContext);
-  const { data, isLoading, error } = useCoinList();
-  console.log("on the intended component", data);
+  const { data, isLoading, error } = useCoinObject();
+  console.log("on the intended component", data && data["42"]);
   return (
     <ControlButtonElement
       active={pageState.page === name}

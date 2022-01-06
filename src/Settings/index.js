@@ -10,7 +10,7 @@ export default function () {
   return (
     <Page name="settings">
       <Welcome />
-      <CoinGrid topSection />
+      {/* <CoinGrid topSection /> */}
       <ConfirmButton />
       <Search />
       <CoinGrid />
