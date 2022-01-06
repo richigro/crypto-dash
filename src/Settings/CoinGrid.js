@@ -17,7 +17,7 @@ function getCoinsToDisplay(coinObject, topSection, favorites) {
 
 export default function CoinGrid({ topSection }) {
   const [{ coinObject, favorites }] = React.useContext(AppContext);
-  console.log("the favorites as of now: ", favorites);
+  // console.log("the favorites as of now: ", favorites);
   return (
     <div>
       {topSection ? "My Favorites" : "Select your favorites"}

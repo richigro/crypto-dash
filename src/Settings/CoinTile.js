@@ -10,7 +10,7 @@ export default function ({ coinKey, topSection }) {
   const [pageState, _, __, addCoin, removeCoin, isInFavorites] =
     React.useContext(AppContext);
   const coin = pageState.coinObject[coinKey];
-  console.log("the coin: ", coin);
+  // console.log("the coin: ", coin);
   const handleClick = (topSection, coinKey, addCoin, removeCoin) => {
     return topSection
       ? () => {
