@@ -33,7 +33,8 @@ const SearchSection = styled.div`
 `;
 
 const StyledInput = styled.input`
-  flex-grow: 1;
+  width: 100%;
+  margin-right: 1rem;
   height: 2rem;
   border-radius: 1.4rem;
   padding: 0.7rem;

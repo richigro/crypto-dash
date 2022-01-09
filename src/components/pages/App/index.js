@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Sidebar from "../../atoms/Sidebar";
 import NavigationSidebar from "../../molecules/NavigationSidebar";
+import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 import GlobalHeader from "../../organisms/GlobalHeader";
 import CoinPicker from "../CoinPicker";
 
@@ -24,16 +25,14 @@ const SidebarAndContentWrapper = styled.div`
 //   color: red;
 // `;
 
-const FavoritesSidebar = styled(Sidebar)`
-  width: 20rem;
-`;
+// const FavoritesSidebar = styled(Sidebar)`
+//   width: 20rem;
+// `;
 
 const PageDisplay = styled.div`
   flex-grow: 1;
   border: 3px solid blue;
-  padding: 4rem;
   width: 60%;
-  /* height: 90rem; */
 `;
 
 export default function App() {
