@@ -2,7 +2,7 @@ import React from "react";
 // import styled from "styled-components";
 import styled from "styled-components";
 
-const StyledCard = styled.div`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
@@ -59,7 +59,7 @@ function CoinCard({ coinData }) {
   const imageURL = `http://cryptocompare.com/${coinData.ImageUrl}`;
   console.log("the coin data: ", coinData);
   return (
-    <StyledCard>
+    <Card>
       <CoinHeader>
         <ImageContainer>
           <StyledCoinImage src={imageURL} alt={coinData.CoinName} />
@@ -72,7 +72,7 @@ function CoinCard({ coinData }) {
           <div>Coin Symbol: </div> <div>{coinData.Symbol}</div>
         </Flex>
       </CoinBody>
-    </StyledCard>
+    </Card>
   );
 }
 

@@ -6,23 +6,31 @@ import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 
 import { useCoinObject } from "../../../Hooks/coinHooks";
 
-const Wrapper = styled.div`
+const Page = styled.div`
   display: flex;
-  height: 100%;
+  border: 3px dashed red;
 `;
 
-const StyledCoinList = styled.div`
+const ContentSection = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border: 5px dashed purple;
+`;
+
+const CoinList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-width: 76%;
+  border: 3px dashed pink;
 `;
 
 const LoadingList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 76%;
+  /* min-width: 76%; */
   height: 100%;
 `;
 
@@ -39,24 +47,26 @@ export default function CoinPicker() {
 
   console.log("the coin list: ", coinList);
   return (
-    <Wrapper>
-      {isLoading && (
-        <LoadingList>
-          <div>Retriving all coins...</div>
-        </LoadingList>
-      )}
-      {!isLoading && !error && (
-        <>
-          <StyledCoinList>
+    <Page>
+      <ContentSection>
+        {isLoading && <div>Retriving all coins...</div>}
+        {!isLoading && (
+          <CoinList>
             {coinList &&
               coinList.length > 0 &&
               coinList.slice(0, 90).map((coinData) => {
                 return <CoinCard coinData={coinData} />;
               })}
-          </StyledCoinList>
-          <FavoritesSidebar />
-        </>
-      )}
-    </Wrapper>
+          </CoinList>
+        )}
+        {!isLoading && error && (
+          <div>
+            <h2>Error Loading List</h2>
+            <div>Please try again</div>
+          </div>
+        )}
+      </ContentSection>
+      <FavoritesSidebar />
+    </Page>
   );
 }
