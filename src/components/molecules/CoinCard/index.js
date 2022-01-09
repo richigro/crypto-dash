@@ -36,7 +36,7 @@ const CoinName = styled.div`
   /* flex-grow: 1; */
 `;
 
-const CoinHeader = styled.div`
+const CardHeader = styled.div`
   width: 100%;
   padding: 0;
   border: 1px solid orange;
@@ -50,9 +50,14 @@ const StyledHr = styled.hr`
   border-top: 1px solid #aaa;
 `;
 
-const CoinBody = styled.div`
+const CardBody = styled.div`
   border: 1px solid pink;
   height: 100%;
+  margin-bottom: 1rem;
+`;
+
+const CardFooter = styled.div`
+  border: 2px solid blue;
 `;
 
 function CoinCard({ coinData }) {
@@ -60,18 +65,21 @@ function CoinCard({ coinData }) {
   console.log("the coin data: ", coinData);
   return (
     <Card>
-      <CoinHeader>
+      <CardHeader>
         <ImageContainer>
           <StyledCoinImage src={imageURL} alt={coinData.CoinName} />
         </ImageContainer>
         <CoinName>{coinData.CoinName}</CoinName>
-      </CoinHeader>
+      </CardHeader>
       <StyledHr />
-      <CoinBody>
+      <CardBody>
         <Flex>
           <div>Coin Symbol: </div> <div>{coinData.Symbol}</div>
         </Flex>
-      </CoinBody>
+      </CardBody>
+      <CardFooter>
+        <button>Add To Favorites</button>
+      </CardFooter>
     </Card>
   );
 }
