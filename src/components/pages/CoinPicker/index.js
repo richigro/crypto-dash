@@ -8,12 +8,22 @@ import { useCoinObject } from "../../../Hooks/coinHooks";
 
 const Wrapper = styled.div`
   display: flex;
+  height: 100%;
 `;
 
-export const StyledCoinList = styled.div`
+const StyledCoinList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  min-width: 76%;
+`;
+
+const LoadingList = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 76%;
+  height: 100%;
 `;
 
 export default function CoinPicker() {
@@ -30,16 +40,23 @@ export default function CoinPicker() {
   console.log("the coin list: ", coinList);
   return (
     <Wrapper>
-      <StyledCoinList>
-        {isLoading && <div>Retriving all coins...</div>}
-
-        {coinList &&
-          coinList.length > 0 &&
-          coinList.slice(0, 90).map((coinData) => {
-            return <CoinCard coinData={coinData} />;
-          })}
-      </StyledCoinList>
-      <FavoritesSidebar />
+      {isLoading && (
+        <LoadingList>
+          <div>Retriving all coins...</div>
+        </LoadingList>
+      )}
+      {!isLoading && !error && (
+        <>
+          <StyledCoinList>
+            {coinList &&
+              coinList.length > 0 &&
+              coinList.slice(0, 90).map((coinData) => {
+                return <CoinCard coinData={coinData} />;
+              })}
+          </StyledCoinList>
+          <FavoritesSidebar />
+        </>
+      )}
     </Wrapper>
   );
 }
