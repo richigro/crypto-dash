@@ -2,37 +2,49 @@ import React from "react";
 import styled from "styled-components";
 
 const GlobalHeader = styled.header`
-  /* position: fixed;
-   */
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: center;
-  /* margin-bottom: 40px; */
-  border: 1px solid red;
+  border: 6px solid red;
   background-color: #010e2c;
   z-index: 1;
   width: 100%;
   height: 5rem;
 `;
 
-const HeaderContainer = styled.div`
-  width: 100%;
+const LogoSection = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid blue;
+  width: 15rem;
+  border: 2px solid red;
 `;
 
 const Logo = styled.div`
   font-size: 1.5em;
-  /* flex-grow: 1; */
+`;
+
+const SearchSection = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid green;
 `;
 
 const StyledInput = styled.input`
-  width: 70%;
-  border-radius: 1rem;
-  padding: 0.5rem;
+  flex-grow: 1;
+  height: 2rem;
+  border-radius: 1.4rem;
+  padding: 0.7rem;
+`;
+
+const MiscSection = styled.div`
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid pink;
 `;
 
 const StyledButton = styled.button`
@@ -44,11 +56,15 @@ const StyledButton = styled.button`
 export default function () {
   return (
     <GlobalHeader>
-      <HeaderContainer>
+      <LogoSection>
         <Logo>CryptoDash</Logo>
+      </LogoSection>
+      <SearchSection>
         <StyledInput type="text" placeholder="Search for coins..." />
+      </SearchSection>
+      <MiscSection>
         <StyledButton>...</StyledButton>
-      </HeaderContainer>
+      </MiscSection>
     </GlobalHeader>
   );
 }
