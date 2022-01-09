@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Sidebar from "../../atoms/Sidebar";
+import { Link } from "react-router-dom";
 
 const StyledSidebar = styled(Sidebar)`
   width: 15rem;
@@ -9,7 +10,7 @@ const StyledSidebar = styled(Sidebar)`
   border: 9px solid green;
 `;
 
-const StyledList = styled.div`
+const StyledList = styled.nav`
   /* color: red; */
   /* list-style-type: none; */
   display: flex;
@@ -18,8 +19,9 @@ const StyledList = styled.div`
   border: 1px solid red;
 `;
 
-const StyledLink = styled.a`
-  /* color: red; */
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
   border: 1px solid orange;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -36,9 +38,9 @@ const NavigationSidebar = () => {
   return (
     <StyledSidebar>
       <StyledList>
-        <StyledLink>Dashboard</StyledLink>
-        <StyledLink>MyFavorites</StyledLink>
-        <StyledLink>Pick Favorites</StyledLink>
+        <StyledLink to="/dashboard">Dashboard</StyledLink>
+        <StyledLink to="/favorites">MyFavorites</StyledLink>
+        <StyledLink to="/pickcoins">Pick Favorites</StyledLink>
       </StyledList>
     </StyledSidebar>
   );

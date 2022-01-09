@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Sidebar from "../../atoms/Sidebar";
 import NavigationSidebar from "../../molecules/NavigationSidebar";
 import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 import GlobalHeader from "../../organisms/GlobalHeader";
 import CoinPicker from "../CoinPicker";
+import Dashboard from "../Dashboard";
+import Favorites from "../Favorites";
 
 const MainApp = styled.main`
   border: 5px solid orange;
@@ -38,14 +40,19 @@ const PageDisplay = styled.div`
 export default function App() {
   return (
     <MainApp>
-      <GlobalHeader />
-      <SidebarAndContentWrapper>
-        <NavigationSidebar>hi</NavigationSidebar>
-        <PageDisplay>
-          <CoinPicker />
-        </PageDisplay>
-        <FavoritesSidebar>hi</FavoritesSidebar>
-      </SidebarAndContentWrapper>
+      <BrowserRouter>
+        <GlobalHeader />
+        <SidebarAndContentWrapper>
+          <NavigationSidebar>hi</NavigationSidebar>
+          <PageDisplay>
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/pickcoins" element={<CoinPicker />} />
+            </Routes>
+          </PageDisplay>
+        </SidebarAndContentWrapper>
+      </BrowserRouter>
     </MainApp>
   );
 }

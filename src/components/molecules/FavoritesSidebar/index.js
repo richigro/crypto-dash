@@ -8,6 +8,7 @@ const StyledSidebar = styled(Sidebar)`
   padding: 0.5rem;
   border: 9px solid green;
   overflow: auto;
+  flex-shrink: 0;
 `;
 
 const Message = styled.div`

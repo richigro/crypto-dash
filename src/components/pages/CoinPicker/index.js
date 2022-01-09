@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import CoinCard from "../../molecules/CoinCard";
+import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 
 import { useCoinObject } from "../../../Hooks/coinHooks";
+
+const Wrapper = styled.div`
+  display: flex;
+`;
 
 export const StyledCoinList = styled.div`
   display: flex;
@@ -24,7 +29,7 @@ export default function CoinPicker() {
 
   console.log("the coin list: ", coinList);
   return (
-    <>
+    <Wrapper>
       <StyledCoinList>
         {isLoading && <div>Retriving all coins...</div>}
 
@@ -34,6 +39,7 @@ export default function CoinPicker() {
             return <CoinCard coinData={coinData} />;
           })}
       </StyledCoinList>
-    </>
+      <FavoritesSidebar />
+    </Wrapper>
   );
 }
