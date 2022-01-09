@@ -3,7 +3,7 @@ import React from "react";
 import ConfirmButton from "./ConfirmButton";
 import Welcome from "./Welcome";
 import Page from "../Shared/Page";
-import CoinGrid from "./CoinGrid";
+import CoinGrid from "../components/organisms/CoinList/CoinList";
 import Search from "./Search";
 
 export default function () {

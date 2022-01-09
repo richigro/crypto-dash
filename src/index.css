@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #010e2c;
+  color: white;
+  font-family: "Questrial", sans-serif;
+  border: 1px solid red;
+  width: 100%;
+}
+
+html {
+  /* border: 6px solid pink; */
+}

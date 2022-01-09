@@ -3,16 +3,17 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  /* border: 1px solid pink; */
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   color: black;
   padding: 1.4rem;
   padding-top: 0.6rem;
   /* border: 5px solid pink; */
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   margin-right: 1rem;
 `;
 
@@ -22,11 +23,8 @@ const ImageContainer = styled.div`
 `;
 
 const StyledCoinImage = styled.img`
-  /* width: 3rem; */
-  /* height: 3rem; */
-  /* flex-grow: 1; */
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border: 5px solid red;
 `;
 
@@ -39,17 +37,22 @@ const CoinName = styled.div`
 `;
 
 const CoinHeader = styled.div`
-  /* color: red; */
   width: 100%;
   padding: 0;
   border: 1px solid orange;
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const StyledHr = styled.hr`
   border: none;
   border-top: 1px solid #aaa;
+`;
+
+const CoinBody = styled.div`
+  border: 1px solid pink;
+  height: 100%;
 `;
 
 function CoinCard({ coinData }) {
@@ -64,9 +67,11 @@ function CoinCard({ coinData }) {
         <CoinName>{coinData.CoinName}</CoinName>
       </CoinHeader>
       <StyledHr />
-      <Flex>
-        <div>{coinData.Symbol}</div>
-      </Flex>
+      <CoinBody>
+        <Flex>
+          <div>Coin Symbol: </div> <div>{coinData.Symbol}</div>
+        </Flex>
+      </CoinBody>
     </StyledCard>
   );
 }
