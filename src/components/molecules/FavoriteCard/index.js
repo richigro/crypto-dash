@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { removeCoin, useFavorites } from "../../../store/favoritesStore";
 
 const Card = styled.div`
   background: white;
@@ -11,7 +12,19 @@ const Card = styled.div`
 `;
 
 const FavoriteCard = ({ coinData }) => {
-  return <Card>{coinData.CoinName}</Card>;
+  const [stateObject, dispatch] = useFavorites();
+  return (
+    <Card>
+      {coinData.CoinName}
+      <button
+        onClick={() => {
+          removeCoin(dispatch, stateObject, coinData);
+        }}
+      >
+        Remove
+      </button>
+    </Card>
+  );
 };
 
 export default FavoriteCard;

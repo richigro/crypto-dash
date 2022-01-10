@@ -40,8 +40,8 @@ const FavoriteList = styled.div`
 // `;
 
 const FavoritesSidebar = () => {
-  const [favorites] = useFavorites();
-  console.log("the stuff: ", favorites);
+  const [stateObject] = useFavorites();
+  console.log("the stuff: ", stateObject);
   return (
     <StyledSidebar>
       <Message>
@@ -50,7 +50,7 @@ const FavoritesSidebar = () => {
       </Message>
       <div>Favorites</div>
       <FavoriteList>
-        {favorites.map((coin) => (
+        {stateObject.favorites.map((coin) => (
           <FavoriteCard coinData={coin} />
         ))}
       </FavoriteList>

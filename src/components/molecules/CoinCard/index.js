@@ -1,7 +1,7 @@
 import React from "react";
 // import styled from "styled-components";
 import styled from "styled-components";
-import { useFavorites } from "../../../store/favoritesStore";
+import { addCoin, useFavorites } from "../../../store/favoritesStore";
 
 const Card = styled.div`
   display: flex;
@@ -64,8 +64,8 @@ const CardFooter = styled.div`
 function CoinCard({ coinData }) {
   const imageURL = `http://cryptocompare.com/${coinData.ImageUrl}`;
   console.log("the coin data: ", coinData);
-  const [, setFavorites] = useFavorites();
-  console.log("the updater fucntion", setFavorites);
+  const [, dispatch] = useFavorites();
+  console.log("the updater fucntion", dispatch);
   return (
     <Card>
       <CardHeader>
@@ -83,7 +83,7 @@ function CoinCard({ coinData }) {
       <CardFooter>
         <button
           onClick={() => {
-            setFavorites((prev) => [...prev, coinData]);
+            addCoin(dispatch, coinData);
           }}
         >
           Add To Favorites
