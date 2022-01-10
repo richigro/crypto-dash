@@ -64,7 +64,7 @@ const CardFooter = styled.div`
 function CoinCard({ coinData }) {
   const imageURL = `http://cryptocompare.com/${coinData.ImageUrl}`;
   console.log("the coin data: ", coinData);
-  const [, dispatch] = useFavorites();
+  const [stateObject, dispatch] = useFavorites();
   console.log("the updater fucntion", dispatch);
   return (
     <Card>
@@ -83,7 +83,7 @@ function CoinCard({ coinData }) {
       <CardFooter>
         <button
           onClick={() => {
-            addCoin(dispatch, coinData);
+            addCoin(dispatch, stateObject, coinData);
           }}
         >
           Add To Favorites

@@ -20,7 +20,14 @@ function favoritesReducer(state, action) {
 const FavoritesProvider = (props) => {
   const [stateObject, dispatch] = React.useReducer(
     favoritesReducer,
-    initialState
+    initialState,
+    () => {
+      return {
+        favorites: JSON.parse(window.localStorage.getItem("favorites")) || [
+          { CoinName: "utter failure" },
+        ],
+      };
+    }
   );
   const value = [stateObject, dispatch];
   return <FavoritesContext.Provider value={value} {...props} />;
@@ -36,7 +43,11 @@ const useFavorites = () => {
   return context;
 };
 
-const addCoin = (dispatch, coinData) => {
+const addCoin = (dispatch, stateObject, coinData) => {
+  window.localStorage.setItem(
+    "favorites",
+    JSON.stringify([...stateObject.favorites, coinData])
+  );
   dispatch({ type: "ADD_COIN", payload: coinData });
 };
 
@@ -49,6 +60,7 @@ const removeCoin = (dispatch, stateObject, coinData) => {
     (coin) => coin.Id !== coinData.Id
   );
   console.log("this far", updatedFavorites);
+  window.localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   dispatch({ type: "REMOVE_COIN", payload: updatedFavorites });
 };
 
