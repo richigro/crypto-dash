@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import Sidebar from "../../atoms/Sidebar";
+import FavoriteCard from "../FavoriteCard";
+
+import { useFavorites } from "../../../store/favoritesStore";
 
 const StyledSidebar = styled(Sidebar)`
   width: 20rem;
@@ -28,15 +31,17 @@ const FavoriteList = styled.div`
   justify-content: center;
 `;
 
-const FavortieCard = styled.div`
-  background: white;
-  width: 8rem;
-  height: 8rem;
-  margin-right: 9px;
-  margin-bottom: 9px;
-`;
+// const FavortieCard = styled.div`
+//   background: white;
+//   width: 8rem;
+//   height: 8rem;
+//   margin-right: 9px;
+//   margin-bottom: 9px;
+// `;
 
 const FavoritesSidebar = () => {
+  const [favorites] = useFavorites();
+  console.log("the stuff: ", favorites);
   return (
     <StyledSidebar>
       <Message>
@@ -45,30 +50,9 @@ const FavoritesSidebar = () => {
       </Message>
       <div>Favorites</div>
       <FavoriteList>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
-        <FavortieCard>hi</FavortieCard>
+        {favorites.map((coin) => (
+          <FavoriteCard coinData={coin} />
+        ))}
       </FavoriteList>
     </StyledSidebar>
   );
