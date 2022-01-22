@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Sidebar from "../../atoms/Sidebar";
 import FavoriteCard from "../FavoriteCard";
 
-import { useFavorites } from "../../../store/profileStore";
+import { useProfile } from "../../../store/profileStore";
 
 const StyledSidebar = styled(Sidebar)`
   width: 20rem;
@@ -40,8 +40,7 @@ const FavoriteList = styled.div`
 // `;
 
 const FavoritesSidebar = () => {
-  const [stateObject] = useFavorites();
-  console.log("the stuff: ", stateObject);
+  const [profileState] = useProfile();
   return (
     <StyledSidebar>
       <Message>
@@ -50,7 +49,7 @@ const FavoritesSidebar = () => {
       </Message>
       <div>Favorites</div>
       <FavoriteList>
-        {stateObject.favorites.map((coin) => (
+        {profileState.favorites.map((coin) => (
           <FavoriteCard coinData={coin} />
         ))}
       </FavoriteList>

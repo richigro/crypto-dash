@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { removeCoin, useFavorites } from "../../../store/profileStore";
+import { removeCoin, useProfile } from "../../../store/profileStore";
 
 const Card = styled.div`
   background: white;
@@ -12,13 +12,13 @@ const Card = styled.div`
 `;
 
 const FavoriteCard = ({ coinData }) => {
-  const [stateObject, dispatch] = useFavorites();
+  const [profileState, dispatch] = useProfile();
   return (
     <Card>
       {coinData.CoinName}
       <button
         onClick={() => {
-          removeCoin(dispatch, stateObject, coinData);
+          removeCoin(dispatch, profileState, coinData);
         }}
       >
         Remove

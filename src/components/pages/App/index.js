@@ -8,7 +8,7 @@ import CoinPicker from "../CoinPicker";
 import Dashboard from "../Dashboard";
 import Favorites from "../Favorites";
 
-import { FavoritesProvider } from "../../../store/profileStore";
+import { ProfileProvider } from "../../../store/profileStore";
 
 const MainApp = styled.main`
   border: 5px solid orange;
@@ -33,7 +33,7 @@ export default function App() {
   return (
     <MainApp>
       <BrowserRouter>
-        <FavoritesProvider>
+        <ProfileProvider>
           <GlobalHeader />
           <SidebarAndContentWrapper>
             <NavigationSidebar />
@@ -45,7 +45,7 @@ export default function App() {
               </Routes>
             </PageDisplay>
           </SidebarAndContentWrapper>
-        </FavoritesProvider>
+        </ProfileProvider>
       </BrowserRouter>
     </MainApp>
   );

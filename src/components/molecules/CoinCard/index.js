@@ -1,7 +1,7 @@
 import React from "react";
 // import styled from "styled-components";
 import styled from "styled-components";
-import { addCoin, useFavorites } from "../../../store/profileStore";
+import { addCoin, useProfile } from "../../../store/profileStore";
 
 const Card = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ const CardFooter = styled.div`
 function CoinCard({ coinData }) {
   const imageURL = `http://cryptocompare.com/${coinData.ImageUrl}`;
   console.log("the coin data: ", coinData);
-  const [stateObject, dispatch] = useFavorites();
+  const [profileState, dispatch] = useProfile();
   console.log("the updater fucntion", dispatch);
   return (
     <Card>
@@ -83,7 +83,7 @@ function CoinCard({ coinData }) {
       <CardFooter>
         <button
           onClick={() => {
-            addCoin(dispatch, stateObject, coinData);
+            addCoin(dispatch, profileState, coinData);
           }}
         >
           Add To Favorites

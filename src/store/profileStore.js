@@ -1,12 +1,13 @@
 import React from "react";
 
-const FavoritesContext = React.createContext();
+const ProfileContext = React.createContext();
 
 const initialState = {
   favorites: [],
+  isFirstVisit: true
 };
 
-function favoritesReducer(state, action) {
+function profileReducer(state, action) {
   switch (action.type) {
     case "ADD_COIN":
       return { ...state, favorites: [...state.favorites, action.payload] };
@@ -17,24 +18,23 @@ function favoritesReducer(state, action) {
   }
 }
 
-const FavoritesProvider = (props) => {
-  const [stateObject, dispatch] = React.useReducer(
-    favoritesReducer,
+const ProfileProvider = (props) => {
+  const [profileState, dispatch] = React.useReducer(
+    profileReducer,
     initialState,
     () => {
       return {
-        favorites: JSON.parse(window.localStorage.getItem("favorites")) || [
-          { CoinName: "utter failure" },
-        ],
+        favorites: JSON.parse(window.localStorage.getItem("favorites")) || [],
+        isFirstVisit: true
       };
     }
   );
-  const value = [stateObject, dispatch];
-  return <FavoritesContext.Provider value={value} {...props} />;
+  const value = [profileState, dispatch];
+  return <ProfileContext.Provider value={value} {...props} />;
 };
 
-const useFavorites = () => {
-  const context = React.useContext(FavoritesContext);
+const useProfile = () => {
+  const context = React.useContext(ProfileContext);
   if (!context) {
     throw new Error(
       "The useFavorites hook must be used withing a FavoritesProvider."
@@ -59,9 +59,8 @@ const removeCoin = (dispatch, stateObject, coinData) => {
   const updatedFavorites = favoritedCoins.filter(
     (coin) => coin.Id !== coinData.Id
   );
-  console.log("this far", updatedFavorites);
   window.localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   dispatch({ type: "REMOVE_COIN", payload: updatedFavorites });
 };
 
-export { FavoritesProvider, useFavorites, addCoin, removeCoin };
+export { ProfileProvider, useProfile, addCoin, removeCoin };
