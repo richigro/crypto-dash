@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Sidebar from "../../atoms/Sidebar";
 import FavoriteCard from "../FavoriteCard";
 
-import { useFavorites } from "../../../store/favoritesStore";
+import { useFavorites } from "../../../store/profileStore";
 
 const StyledSidebar = styled(Sidebar)`
   width: 20rem;

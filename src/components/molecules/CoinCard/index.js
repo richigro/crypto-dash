@@ -1,7 +1,7 @@
 import React from "react";
 // import styled from "styled-components";
 import styled from "styled-components";
-import { addCoin, useFavorites } from "../../../store/favoritesStore";
+import { addCoin, useFavorites } from "../../../store/profileStore";
 
 const Card = styled.div`
   display: flex;

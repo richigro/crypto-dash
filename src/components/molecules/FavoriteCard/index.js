@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { removeCoin, useFavorites } from "../../../store/favoritesStore";
+import { removeCoin, useFavorites } from "../../../store/profileStore";
 
 const Card = styled.div`
   background: white;
