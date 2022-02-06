@@ -36,7 +36,6 @@ const LoadingList = styled.div`
 
 export default function CoinPicker() {
   const { data: coinObject, isLoading, error } = useCoinObject();
-  console.log("to hide your face: ", coinObject);
 
   // This is wrapped in useMemo because its a very expesive operation and we don't want this to run on every re-render or update from this component.
   const coinList = React.useMemo(() => {
@@ -45,7 +44,6 @@ export default function CoinPicker() {
     );
   }, [coinObject]);
 
-  console.log("the coin list: ", coinList);
   return (
     <Page>
       <ContentSection>

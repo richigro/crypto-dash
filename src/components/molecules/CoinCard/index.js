@@ -63,9 +63,7 @@ const CardFooter = styled.div`
 
 function CoinCard({ coinData }) {
   const imageURL = `http://cryptocompare.com/${coinData.ImageUrl}`;
-  console.log("the coin data: ", coinData);
   const [profileState, dispatch] = useProfile();
-  console.log("the updater fucntion", dispatch);
   return (
     <Card>
       <CardHeader>

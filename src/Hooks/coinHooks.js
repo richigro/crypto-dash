@@ -8,14 +8,23 @@ export function useCoinObject() {
     cc.coinList()
   );
 
-  console.log(data && data.data);
 
   const coinObject = React.useMemo(() => {
     return data && data.Data;
   }, [data]);
 
-  console.log("theData", coinObject);
   // const coinList
 
   return { data: coinObject, isLoading, error };
+}
+
+export function useCoinPrices(coinSymbol, options = {}) {
+  const {data, isLoading, isError, error} = useQuery(['coinPrices'], () => cc.priceFull(coinSymbol, "USD", options));
+  console.log('the data coming back: ', data);
+  if(isError) {
+    console.log('something went wrong', error)
+  } else {
+    console.log('no errors so far')
+  }
+  return {data}
 }
