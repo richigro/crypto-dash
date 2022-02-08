@@ -39,7 +39,7 @@ variable "endpoint" {
   description = "Endpoint url"
   type = string
   # default only for testing
-  default = "test.cryptodashboardproject.xyz"
+  default = "qa.cryptodashboardproject.xyz"
 }
 
 variable "domain_name" {
