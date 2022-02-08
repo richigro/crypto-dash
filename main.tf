@@ -1,12 +1,12 @@
 terraform {
   # this part may be optional
-  backend "s3" {
-    bucket         = "ricardo-terraform-backend"
-    dynamodb_table = "ricardo-db-backend"
-    encrypt        = true
-    key            = "terraform.tfstate"
-    region         = "us-west-2"
-  }
+  # backend "s3" {
+  #   bucket         = "ricardo-terraform-backend"
+  #   dynamodb_table = "ricardo-db-backend"
+  #   encrypt        = true
+  #   key            = "terraform.tfstate"
+  #   region         = "us-west-2"
+  # }
 
   required_providers {
     aws = {
@@ -29,7 +29,7 @@ provider "aws" {
 }
 
 locals {
-  bucket_name = "static_assests_bucket"
+  bucket_name = "static-assests-bucket"
     tags = {
         created_by = "terraform"
     }
@@ -39,17 +39,17 @@ variable "endpoint" {
   description = "Endpoint url"
   type = string
   # default only for testing
-  default = "mywebsite.ricardo.com"
+  default = "test.cryptodashboardproject.xyz"
 }
 
 variable "domain_name" {
   description = "the domain name"
   type = string
-  # default only for testing
-  default = "ricardo.com"
+  # Domain name on hosted zone
+  default = "cryptodashboardproject.xyz"
 }
 
-resource "aws_s3_bucket" "bucket_for_cdn" {
+resource "aws_s3_bucket" "bucket-for-cdn" {
   bucket = local.bucket_name
   acl = "private"
   force_destroy = true
@@ -65,7 +65,7 @@ resource "aws_s3_bucket" "bucket_for_cdn" {
 }
 
 resource "aws_s3_bucket_public_access_block" "s3block" {
-  bucket = aws_s3_bucket.bucket_for_cdn.id
+  bucket = aws_s3_bucket.bucket-for-cdn.id
   block_public_acls = true
   block_public_policy = true
   ignore_public_acls = true
@@ -78,8 +78,8 @@ resource "aws_cloudfront_distribution" "my_cdn" {
   default_root_object = "index.html"
 
   origin {
-    domain_name = aws_s3_bucket.bucket_for_cdn.bucket_regional_domain_name
-    origin_id = aws_s3_bucket.bucket_for_cdn.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.bucket-for-cdn.bucket_regional_domain_name
+    origin_id = aws_s3_bucket.bucket-for-cdn.bucket_regional_domain_name
 
     s3_origin_config {
     origin_access_identity = aws_cloudfront_origin_access_identity.oai.cloudfront_access_identity_path
@@ -89,9 +89,9 @@ resource "aws_cloudfront_distribution" "my_cdn" {
   
 
   default_cache_behavior {
-      allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH"]
+      allowed_methods = ["HEAD", "DELETE", "POST", "GET", "OPTIONS", "PUT", "PATCH"]
       cached_methods = ["GET", "HEAD", "OPTIONS"]
-      target_origin_id = aws_s3_bucket.bucket_for_cdn.bucket_regional_domain_name
+      target_origin_id = aws_s3_bucket.bucket-for-cdn.bucket_regional_domain_name
       viewer_protocol_policy = "redirect-to-https"
 
       forwarded_values {
@@ -126,7 +126,7 @@ resource "aws_cloudfront_origin_access_identity" "oai" {
 }
 
 resource "aws_s3_bucket_policy" "s3policy" {
-  bucket = aws_s3_bucket.bucket_for_cdn.id
+  bucket = aws_s3_bucket.bucket-for-cdn.id
   policy = data.aws_iam_policy_document.s3policy.json
 }
 
@@ -135,8 +135,8 @@ data "aws_iam_policy_document" "s3policy" {
       actions = ["s3:GetObject"]
 
       resources = [
-          aws_s3_bucket.bucket_for_cdn.arn,
-          "${aws_s3_bucket.bucket_for_cdn.arn}/*"
+          aws_s3_bucket.bucket-for-cdn.arn,
+          "${aws_s3_bucket.bucket-for-cdn.arn}/*"
       ]
 
       principals {
