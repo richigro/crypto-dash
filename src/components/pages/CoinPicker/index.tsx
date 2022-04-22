@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import CoinCard from "../../molecules/CoinCard";
+import CoinCard from "components/molecules/CoinCard";
 import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 
-import { useCoinObject } from "../../../hooks/coinHooks";
+import { useCoinObject } from "hooks/coinHooks";
 
 const Page = styled.div`
   display: flex;

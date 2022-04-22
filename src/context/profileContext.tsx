@@ -1,10 +1,10 @@
 import React from "react";
 
-const ProfileContext = React.createContext();
+const ProfileContext = React.createContext(undefined);
 
 const initialState = {
   favorites: [],
-  isFirstVisit: true
+  isFirstVisit: true,
 };
 
 function profileReducer(state, action) {
@@ -25,7 +25,7 @@ const ProfileProvider = (props) => {
     () => {
       return {
         favorites: JSON.parse(window.localStorage.getItem("favorites")) || [],
-        isFirstVisit: true
+        isFirstVisit: true,
       };
     }
   );

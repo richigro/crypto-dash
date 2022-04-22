@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
-import App from "./components/pages/App/index.js";
-import { ModalProvider } from "./context/modalContext";
+import App from "components/pages/App/index.js";
+import { ModalProvider } from "context/modalContext";
 
 const queryClient = new QueryClient();
 
