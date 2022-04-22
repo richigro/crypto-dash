@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { removeCoin, useProfile } from "../../../store/profileStore";
+import { removeCoin, useProfile } from "../../../context/profileContext";
 import { useCoinPrices } from "../../../hooks/coinHooks";
 
 const Card = styled.div`
