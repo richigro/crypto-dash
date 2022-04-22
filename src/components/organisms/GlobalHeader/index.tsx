@@ -52,6 +52,7 @@ const StyledButton = styled.button`
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
+  border: none;
 `;
 
 export default function () {

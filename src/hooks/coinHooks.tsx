@@ -1,7 +1,5 @@
 import React from "react";
 import { useQuery } from "react-query";
-// import cc from "cryptocompare";
-
 const cc = require("cryptocompare");
 
 export function useCoinObject() {

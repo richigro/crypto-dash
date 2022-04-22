@@ -20,7 +20,7 @@ const SearchInput = styled.input`
 export default function () {
   return (
     <SearchGrid>
-      <label for="searchCoin">Search all coins</label>
+      <label htmlFor="searchCoin">Search all coins</label>
       <SearchInput id="searchCoin" />
     </SearchGrid>
   );

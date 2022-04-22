@@ -8,7 +8,7 @@ const SidebarContainer = styled.div`
   top: 5rem;
 `;
 
-const Sidebar = ({ className, children }) => {
+const Sidebar = ({ className: string, children }) => {
   return <SidebarContainer className={className}>{children}</SidebarContainer>;
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
-// import styled from "styled-components";
 import styled from "styled-components";
-import { addCoin, useProfile } from "../../../context/profileContext";
+import { addCoin, useProfile } from "context/profileContext";
 
 const Card = styled.div`
   display: flex;
@@ -12,7 +11,6 @@ const Card = styled.div`
   color: black;
   padding: 1.4rem;
   padding-top: 0.6rem;
-  /* border: 5px solid pink; */
   width: 15rem;
   height: 15rem;
   margin-right: 1rem;
