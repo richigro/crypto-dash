@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CoinCard from "../../molecules/CoinCard";
 import FavoritesSidebar from "../../molecules/FavoritesSidebar";
 
-import { useCoinObject } from "../../../Hooks/coinHooks";
+import { useCoinObject } from "../../../hooks/coinHooks";
 
 const Page = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { removeCoin, useProfile } from "../../../store/profileStore";
-import { useCoinPrices } from "../../../Hooks/coinHooks";
+import { useCoinPrices } from "../../../hooks/coinHooks";
 
 const Card = styled.div`
   background: white;
@@ -14,7 +14,7 @@ const Card = styled.div`
 
 const FavoriteCard = ({ coinData }) => {
   const [profileState, dispatch] = useProfile();
-const {data} = useCoinPrices("BTC");
+  const { data } = useCoinPrices("BTC");
 
   return (
     <Card>
