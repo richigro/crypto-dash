@@ -5,17 +5,25 @@ import { Link, useMatch } from "react-router-dom";
 const StyledLink = styled(Link)`
   color: inherit;
   text-decoration: none;
-  // border: 1px solid orange;
+
   margin-bottom: 1rem;
-  // border-radius: 10px;
   text-align: center;
-  padding: 0.5rem;
-  width: 90%;
+  // padding: 0.5rem;
+  position: relative;
+  padding: 0.5em 1em;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: pink;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
   &:hover {
-    background-color: indigo;
+    // background-color: indigo;
+    top: 0.8rem;
+    z-index: 99;
+    left: 1.2rem;
+    transform: scale(1.2, 1.2);
   }
-  ${({ match }) =>
-    match && "border-right: 10px solid indigo; background: gray;"}
+  // ${({ match }) => match && "top: 10px; left: 10px;"}
 `;
 
 const NavLink = (props) => {
