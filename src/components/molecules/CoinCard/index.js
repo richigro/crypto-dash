@@ -1,7 +1,7 @@
 import React from "react";
 // import styled from "styled-components";
 import styled from "styled-components";
-import { addCoin, useProfile } from "../../../store/profileStore";
+import { addCoin, useProfile } from "../../../context/profileContext";
 
 const Card = styled.div`
   display: flex;

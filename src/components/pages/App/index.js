@@ -8,7 +8,7 @@ import CoinPicker from "../CoinPicker";
 import Dashboard from "../Dashboard";
 import Favorites from "../Favorites";
 
-import { ProfileProvider } from "../../../store/profileStore";
+import { ProfileProvider } from "../../../context/profileContext";
 
 const MainApp = styled.main`
   border: 5px solid orange;
