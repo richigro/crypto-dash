@@ -4,7 +4,6 @@ import { AppContext } from "../App/AppProvider";
 
 export default function Welcome() {
   const [pageState] = React.useContext(AppContext);
-  // console.log('the page state', pageState)
   return (
     <div>
       <h1>

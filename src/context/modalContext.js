@@ -10,7 +10,6 @@ export function ModalProvider(props) {
 
 export const useModal = () => {
   const context = React.useContext(ModalContext);
-  console.log("the context", context);
   if (!context) {
     throw new Error("useModal hook must be used within a ModalProvider");
   }

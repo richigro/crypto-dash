@@ -8,7 +8,7 @@ import { useCoinObject } from "../../../hooks/coinHooks";
 
 const Page = styled.div`
   display: flex;
-  border: 3px dashed red;
+  /* border: 3px dashed red; */
 `;
 
 const ContentSection = styled.div`
@@ -16,7 +16,7 @@ const ContentSection = styled.div`
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  border: 5px dashed purple;
+  /* border: 5px dashed purple; */
 `;
 
 const CoinList = styled.div`

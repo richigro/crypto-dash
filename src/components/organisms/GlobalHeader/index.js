@@ -5,7 +5,6 @@ const GlobalHeader = styled.header`
   position: sticky;
   top: 0;
   display: flex;
-  border: 6px solid red;
   background-color: #010e2c;
   z-index: 1;
   width: 100%;
@@ -29,7 +28,6 @@ const SearchSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid green;
 `;
 
 const StyledInput = styled.input`
