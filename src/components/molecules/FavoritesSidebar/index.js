@@ -9,13 +9,11 @@ import { useProfile } from "../../../context/profileContext";
 const StyledSidebar = styled(Sidebar)`
   width: 20rem;
   padding: 0.5rem;
-  border: 9px solid green;
   overflow: auto;
   flex-shrink: 0;
 `;
 
 const Message = styled.div`
-  border: 1px solid blue;
   margin-bottom: 2rem;
 `;
 
@@ -25,7 +23,6 @@ const StyledHeader = styled.h2`
 
 const FavoriteList = styled.div`
   margin-top: 1rem;
-  border: 1px solid orange;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

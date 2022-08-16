@@ -9,7 +9,7 @@ import {
 export const Tile = styled.div`
   ${subtleBoxShadow}
   ${lightBlueBackground}
-  border: 1px solid pink
+  /* border: 1px solid pink; */
  padding: 10px;
 `;
 

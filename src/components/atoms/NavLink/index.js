@@ -8,7 +8,6 @@ const StyledLink = styled(Link)`
 
   margin-bottom: 1rem;
   text-align: center;
-  // padding: 0.5rem;
   position: relative;
   padding: 0.5em 1em;
   border: 0;
@@ -28,7 +27,6 @@ const StyledLink = styled(Link)`
 
 const NavLink = (props) => {
   const match = useMatch(props.to);
-  console.log("this match thing: ", match);
   return <StyledLink match={match} {...props} />;
 };
 

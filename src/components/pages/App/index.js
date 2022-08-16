@@ -12,6 +12,7 @@ import { ProfileProvider } from "../../../context/profileContext";
 
 const MainApp = styled.main`
   border: 5px solid orange;
+  height: 100%;
   padding: 5rem;
   padding-top: 0;
   padding-bottom: 0;
@@ -20,7 +21,7 @@ const MainApp = styled.main`
 const SidebarAndContentWrapper = styled.div`
   display: flex;
   width: 100%;
-  border: 8px solid orange;
+  border: 2px solid orange;
 `;
 
 const PageDisplay = styled.div`

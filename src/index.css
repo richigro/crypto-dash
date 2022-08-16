@@ -8,10 +8,10 @@ body {
   background-color: #010e2c;
   color: white;
   font-family: "Questrial", sans-serif;
-  border: 1px solid red;
   width: 100%;
+  height: 100%;
 }
 
 html {
-  /* border: 6px solid pink; */
+  height: 100%;
 }
