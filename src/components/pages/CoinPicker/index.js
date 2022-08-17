@@ -52,8 +52,8 @@ export default function CoinPicker() {
           <CoinList>
             {coinList &&
               coinList.length > 0 &&
-              coinList.slice(0, 90).map((coinData) => {
-                return <CoinCard coinData={coinData} />;
+              coinList.slice(0, 90).map((coinData, index) => {
+                return <CoinCard key={index} coinData={coinData} />;
               })}
           </CoinList>
         )}
