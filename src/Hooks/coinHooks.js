@@ -8,7 +8,6 @@ export function useCoinObject() {
     cc.coinList()
   );
 
-
   const coinObject = React.useMemo(() => {
     return data && data.Data;
   }, [data]);
@@ -19,12 +18,20 @@ export function useCoinObject() {
 }
 
 export function useCoinPrices(coinSymbol, options = {}) {
-  const {data, isLoading, isError, error} = useQuery(['coinPrices'], () => cc.priceFull(coinSymbol, "USD", options));
-  console.log('the data coming back: ', data);
-  if(isError) {
-    console.log('something went wrong', error)
+  const { data, isLoading, isError, error } = useQuery(["coinPrices"], () =>
+    cc.priceFull(coinSymbol, "USD", options)
+  );
+  console.log("the data coming back: ", data);
+  if (isError) {
+    console.log("something went wrong", error);
   } else {
-    console.log('no errors so far')
+    console.log("no errors so far");
   }
-  return {data}
+  return { data };
+}
+
+export function useHistoricalPricing(coinSymbol, currencies, fullDate) {
+  return useQuery(["historical-prices-year"], () =>
+    cc.priceHistorical(coinSymbol, currencies, fullDate)
+  );
 }
