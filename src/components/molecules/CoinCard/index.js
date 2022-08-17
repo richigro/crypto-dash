@@ -6,32 +6,32 @@ import { addCoin, useProfile } from "../../../context/profileContext";
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 7px;
   color: black;
   padding: 1.4rem;
   padding-top: 0.6rem;
-  width: 15rem;
-  height: 15rem;
+  width: 11rem;
+  height: 11rem;
   margin-right: 1rem;
 `;
 
 const ImageContainer = styled.div`
-  flex-grow: 1;
+  margin-right: 0.5rem;
 `;
 
 const StyledCoinImage = styled.img`
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 `;
 
 const Flex = styled.div`
   display: flex;
 `;
 
-const CoinName = styled.div`
-  /* flex-grow: 1; */
+const CoinName = styled.h5`
+  border: 1px solid red;
 `;
 
 const CardHeader = styled.div`

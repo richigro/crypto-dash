@@ -6,7 +6,9 @@ import { useProfile } from "../../../context/profileContext";
 import LineCharts from "../../organisms/LineCharts";
 
 const DashboardContainer = styled.div`
-  border: 1px solid pink;
+  display: flex;
+  justify-content: center;
+  border: 10px solid pink;
   height: 100%;
 `;
 
@@ -19,12 +21,6 @@ const Dashboard = () => {
 
   return (
     <DashboardContainer>
-      {/* <ul>
-        {profileState.favorites.map((favorite) => {
-          console.log("the favs: ", favorite);
-          return <li key={favorite.CoinName}>{favorite.CoinName}</li>;
-        })}
-      </ul> */}
       <LineCharts />
     </DashboardContainer>
   );

@@ -7,10 +7,11 @@ import FavoriteCard from "../FavoriteCard";
 import { useProfile } from "../../../context/profileContext";
 
 const StyledSidebar = styled(Sidebar)`
-  width: 20rem;
+  width: 50%;
   padding: 0.5rem;
   overflow: auto;
   flex-shrink: 0;
+  border: 1px solid red;
 `;
 
 const Message = styled.div`

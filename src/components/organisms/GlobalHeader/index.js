@@ -15,8 +15,9 @@ const LogoSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15rem;
-  border: 2px solid red;
+  /* width: 15rem; */
+  /* border: 2px solid red; */
+  margin-right: 3rem;
 `;
 
 const Logo = styled.div`
@@ -34,8 +35,8 @@ const StyledInput = styled.input`
   width: 100%;
   margin-right: 1rem;
   height: 2rem;
-  border-radius: 1.4rem;
-  padding: 0.7rem;
+  border-radius: 0.3rem;
+  padding: 1rem;
 `;
 
 const MiscSection = styled.div`
@@ -43,7 +44,7 @@ const MiscSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 `;
 
 const StyledButton = styled.button`

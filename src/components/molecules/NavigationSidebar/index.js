@@ -5,7 +5,6 @@ import Sidebar from "../../atoms/Sidebar";
 import NavLink from "../../atoms/NavLink";
 
 const StyledSidebar = styled(Sidebar)`
-  width: 15rem;
   padding: 1rem;
 `;
 

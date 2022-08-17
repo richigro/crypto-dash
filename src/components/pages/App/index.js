@@ -12,7 +12,6 @@ import { ProfileProvider } from "../../../context/profileContext";
 
 const MainApp = styled.main`
   border: 5px solid orange;
-  height: 100%;
   padding: 5rem;
   padding-top: 0;
   padding-bottom: 0;

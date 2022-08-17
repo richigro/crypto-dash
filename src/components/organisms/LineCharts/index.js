@@ -92,7 +92,6 @@ const ButtonContainer = styled.li`
 
 const CardBody = styled.div`
   /* border: 5px solid gray; */
-  margin-top: 1rem;
   position: relative;
   height: 80%;
   width: 100%;
@@ -127,7 +126,7 @@ function LineCharts() {
         </LeftSideHeader>
         <RightSideHeader>
           <ButtonList>
-            <ButtonContainer>1Y</ButtonContainer>
+            <ButtonContainer>1y</ButtonContainer>
           </ButtonList>
         </RightSideHeader>
       </CardHeader>
