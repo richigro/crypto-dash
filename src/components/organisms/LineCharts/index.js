@@ -5,15 +5,27 @@ import { Line } from "react-chartjs-2";
 
 import { useHistoricalPricing } from "../../../hooks/coinHooks";
 
+// const gradient =
+
 const state = {
-  labels: ["January", "February", "March", "April", "May"],
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+  ],
   datasets: [
     {
-      label: "Bitcoin",
-      backgroundColor: "rgb(75, 192, 192)",
       borderColor: "rgb(75, 192, 192)",
       borderWidth: 2,
-      data: [65, 59, 80, 81, 56, 92],
+      data: [41822, 38777, 44404, 46296, 38471, 29788, 19247, 23273],
+      fill: true,
+      background: "linear-gradient(rgba(250,0,0,0.5),transparent)",
+      backgroundColor: "orange",
     },
   ],
 };
@@ -25,8 +37,8 @@ const PriceDisplayCard = styled.div`
   padding: 0.5rem;
   background-color: white;
   color: black;
-  width: 40rem;
-  height: 30rem;
+  max-width: 40rem;
+  max-height: 30rem;
   border-radius: 4px;
 `;
 
@@ -80,6 +92,8 @@ const ButtonContainer = styled.li`
 
 const CardBody = styled.div`
   /* border: 5px solid gray; */
+  margin-top: 1rem;
+  position: relative;
   height: 80%;
   width: 100%;
 `;
@@ -109,15 +123,11 @@ function LineCharts() {
             <h5>Bitcoin</h5>
           </CoinBanner>
           <PriceText>Price</PriceText>
-          <PriceDisplay>$24,014.01</PriceDisplay>
+          <PriceDisplay>$23,273</PriceDisplay>
         </LeftSideHeader>
         <RightSideHeader>
           <ButtonList>
-            <ButtonContainer>1h</ButtonContainer>
-            <ButtonContainer>1d</ButtonContainer>
-            <ButtonContainer>1w</ButtonContainer>
-            <ButtonContainer>1m</ButtonContainer>
-            <ButtonContainer>All</ButtonContainer>
+            <ButtonContainer>1Y</ButtonContainer>
           </ButtonList>
         </RightSideHeader>
       </CardHeader>
@@ -125,16 +135,29 @@ function LineCharts() {
         <Line
           data={state}
           options={{
+            radius: 3,
+            hitRadius: 30,
+            hoverRadius: 5,
             title: {
               display: true,
               text: "Bitcoin Price",
               fontSize: 20,
             },
-            legend: {
-              display: false,
-              postion: "right",
+            scales: {
+              y: {
+                ticks: {
+                  callback: (number) => {
+                    return `$${number}`;
+                  },
+                },
+              },
             },
             responsive: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
           }}
         />
       </CardBody>
